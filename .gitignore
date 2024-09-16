@@ -13,3 +13,4 @@ logs/
 
 # Ignore build output
 dist/
+.vercel
