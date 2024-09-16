@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/stylesheets/main.css">
+    <title>Assignment</title>
+</head>
+
+<body>
+
+
+    <div class='container-fluid ' id='mainContainer'>
+        <div class="d-flex  align-items-center">
+            <img style="width: 620px;" src="./assets/images/Sign Up.png" alt="image" class="img-fluid" />
+        </div>
+
+        <div class="d-flex flex-column p-4 border rounded-3" id="signUpBox">
+            <div id="headingContainer">
+                <h2 class="fw-bold" id="heading1">
+                    Let us know<span id="spans">!</span>
+                </h2>
+                <a href="/login" class="fw-bold" id="heading">
+                    Sign <span id="spans">In</span>
+                </a>
+            </div>
+            <form action="/user/signup" method="post" class="d-flex flex-column mt-2" id="signupForm">
+                <input type="text" placeholder="First Name" class="p-2 border-0 border-bottom " class="signupInput"
+                    name="firstName" required />
+                <input type="text" placeholder="Last Name" class="p-2 border-0 border-bottom" class="signupInput"
+                    name="lastName" />
+                <div class="border-bottom position-relative " id="icons">
+                    <input id="password" type="password" placeholder="Set Password" class="password p-2 border-0 w-100"
+                        class="signupInput" name="password" required />
+                        <i id="togglePassword1" class="fa-solid fa-eye"></i>
+                    </div>
+                <div class="border-bottom position-relative " id="icons">
+                    <input id="confirmPassword" type="password" placeholder="Retype Password" class="confirmPassword p-2 border-0 w-100"
+                        class="signupInput" name="confirmPassword" required />
+                        <i id="togglePassword2" class="fa-solid fa-eye"></i>
+                    </div>
+                <div class=" border-bottom  position-relative" id="icons">
+                    <input type="text" placeholder="Contact Mode" class=" p-2 border-0 w-100 " class="signupInput"
+                        disabled />
+                </div>
+                <div class="border-bottom position-relative" id="icons"">
+                <input type="email" placeholder="Email" class=" p-2 border-0 " class="signupInput" name="email"
+                        required />
+                        <button type="button" class="btn btn-warning position-absolute"  id="sendOtpButton">Send OTP</button>
+
+                    </div>
+                    <input id="otp" type="text" placeholder="Enter OTP"  class="p-2 border-0 border-bottom" class="signupInput"
+                     required />
+                <button class="btn rounded-pill border-0 py-2 mt-4 text-white" id="signUpButton">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+         function togglePassword(inputId, iconId) {
+            const passwordField = document.querySelector(`#${inputId}`);
+            const toggleIcon = document.querySelector(`#${iconId}`);
+            toggleIcon.addEventListener("click", function () {
+                const type = passwordField.type === "password" ? "text" : "password";
+                passwordField.type = type;
+                this.classList.toggle("fa-eye-slash");
+            });
+        }
+
+        togglePassword("password", "togglePassword1");
+        togglePassword("confirmPassword", "togglePassword2");
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
